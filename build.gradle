@@ -1,0 +1,46 @@
+//Плагины/Модули для грэдла : Java , Приложение и javaFx
+//JavaFx для сборки графических элементов
+plugins {
+    id 'java'
+    id 'application'
+    id 'org.openjfx.javafxplugin' version '0.0.9'
+}
+
+//Требуемые версии совместимости для Java
+sourceCompatibility = 14
+targetCompatibility = 14
+
+//Название группы для проекта
+group 'home.iddqd13'
+//Версия
+version '1.0-SNAPSHOT'
+
+//Используемые репозитории для получения пакетов/модулей
+repositories {
+    mavenCentral()
+}
+
+//Наши зависимости
+//На текущий момент достаточно использовать JUnit 5й версии
+dependencies {
+    testImplementation group: 'org.junit.jupiter', name: 'junit-jupiter', version: '5.6.2'
+}
+
+//Указываем главный класс где искать "main" метод.
+mainClassName = 'home.shark.Main'
+
+//Информация для плагина JavaFx, Используем соответствующиюю версию 14
+//Плюс : указываем какие модули JavaFx мы будем использовать.
+javafx {
+    version = '14'
+    modules = [
+            //Основа. Чаще всего - логика и базовые типы
+            'javafx.base',
+            //Управление ( кнопки, поля ввода и т.д.)
+            'javafx.controls',
+            //FXML файлы для хранения формы + связи с классом контроллера.
+            'javafx.fxml',
+            //Веб модуль - для браузера или окна и т.д.
+            'javafx.web'
+    ]
+}
